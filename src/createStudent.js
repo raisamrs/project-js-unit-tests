@@ -25,5 +25,3 @@ const createStudent = (name) => {
 };
 
 module.exports = createStudent;
-
-console.log(createStudent('Raisa'));
