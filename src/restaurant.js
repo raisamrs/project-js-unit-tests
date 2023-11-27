@@ -41,10 +41,3 @@ const menuData = {
   },
 };
 module.exports = createMenu;
-
-/* const menuObject = createMenu(menuData);
-menuObject.order('pizza').order('cola').order('salad');
-console.log(menuObject.consumption); // Saída esperada: ['pizza', 'cola', 'salad']
-
-const totalPayment = menuObject.pay();
-console.log(totalPayment);  */
