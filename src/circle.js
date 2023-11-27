@@ -36,4 +36,4 @@ console.log(result);
 console.log(Object.entries(result));
 console.log(Object.values(result));
 console.log((result).circumference);
-console.log(Object.keys(result).length);
+console.log(Object.keys(result));
