@@ -1,31 +1,32 @@
 /* eslint-disable max-len */
 // Siga as orientações do README!
 
-const createMenu = (objectMenu) => {
-  const menu = {
-    fetchMenu: () => objectMenu,
+const createMenu = (object) => {
+  const customMenu = {
+    fetchMenu: () => object,
     consumption: [],
-    order: (item) => {
-      const isFoodAvailable = objectMenu.food && objectMenu.food[item];
-      const isDrinkAvailable = objectMenu.drinks && objectMenu.drinks[item];
-
-      if (isFoodAvailable || isDrinkAvailable) {
-        menu.consumption.push(item);
-      } else {
-        console.log('Item indisponível');
+    order: (dish) => {
+      if (object.food[dish] || object.drinks[dish]) {
+        customMenu.consumption.push({
+          dish,
+          price: object.food[dish]
+            || object.drinks[dish],
+        });
+        return `Pedido: ${dish}`;
       }
-      return menu;
+      return 'Item indisponível';
     },
     pay: () => {
-      const total = menu.consumption.reduce((acc, item) => {
-        const price = objectMenu.food[item] || objectMenu.drinks[item];
-        return acc + price;
-      }, 0);
-      return total * 1.1;
+      let total = 0;
+      for (let i = 0; i < customMenu.consumption.length; i += 1) {
+        const payment = customMenu.consumption[i].price;
+        total += payment;
+      }
+      const debt = total * 1.1;
+      return debt;
     },
   };
-
-  return menu;
+  return customMenu;
 };
 
 const menuData = {
@@ -40,4 +41,18 @@ const menuData = {
     water: 1,
   },
 };
+
+const resultOrder = createMenu(menuData);
+resultOrder.order('pizza');
+const valuePay = resultOrder.pay();
+console.log(resultOrder);
+console.log(valuePay);
+
 module.exports = createMenu;
+/* 
+const resultOrder = createMenu(menuData).order('pizza');
+console.log(resultOrder);
+const resultConsumption = createMenu(menuData).consumption;
+console.log(resultConsumption);
+console.log(createMenu(menuData).consumption);
+module.exports = createMenu; */
