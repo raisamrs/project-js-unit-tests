@@ -28,7 +28,7 @@ const createMenu = (object) => {
   };
   return customMenu;
 };
-
+/*
 const menuData = {
   food: {
     pizza: 10,
@@ -41,18 +41,12 @@ const menuData = {
     water: 1,
   },
 };
-
-const resultOrder = createMenu(menuData);
-resultOrder.order('pizza');
-const valuePay = resultOrder.pay();
-console.log(resultOrder);
-console.log(valuePay);
-
-module.exports = createMenu;
-/* 
 const resultOrder = createMenu(menuData).order('pizza');
 console.log(resultOrder);
 const resultConsumption = createMenu(menuData).consumption;
 console.log(resultConsumption);
 console.log(createMenu(menuData).consumption);
-module.exports = createMenu; */
+module.exports = createMenu;
+ */
+
+module.exports = createMenu;
